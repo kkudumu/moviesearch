@@ -13,11 +13,10 @@ const Show = () => {
 
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
       .then(results => {
-        setTimeout(() => {
-            if(isMounted){
-            setShow(results);
-            setIsLoading(false);
-          }
+        if (isMounted) {
+          setShow(results);
+          setIsLoading(false);
+        }
       })
       .catch(err => {
         if (isMounted) {
